@@ -721,6 +721,228 @@
             }
         }
 
+        /* ==================== FAQ CHATBOT ==================== */
+        .faq-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .faq-button {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--white);
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(244, 164, 164, 0.4);
+            transition: var(--transition);
+            border: none;
+            animation: pulse-faq 2s infinite;
+        }
+
+        @keyframes pulse-faq {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(244, 164, 164, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(244, 164, 164, 0.7);
+            }
+        }
+
+        .faq-button:hover {
+            transform: scale(1.1);
+            background: var(--primary-dark);
+        }
+
+        .faq-widget {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            max-height: 500px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .faq-widget.active {
+            display: flex;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .faq-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .faq-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .faq-body {
+            padding: 1rem;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .faq-greeting {
+            background: var(--secondary);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-question {
+            background: var(--light-gray);
+            padding: 0.9rem 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-question:hover {
+            background: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            background: var(--white);
+            border: 2px solid var(--secondary);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .faq-answer h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .faq-answer p {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .faq-combo {
+            background: var(--light-gray);
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-combo strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-price {
+            color: var(--accent-dark);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .faq-whatsapp-btn {
+            background: #25D366;
+            color: var(--white);
+            padding: 0.9rem;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .faq-whatsapp-btn:hover {
+            background: #20BA5A;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 640px) {
+            .faq-widget {
+                width: calc(100vw - 40px);
+                right: 20px;
+                left: 20px;
+                max-height: 70vh;
+            }
+        }
+
         /* ==================== FOOTER ==================== */
         .footer {
             background: var(--dark);
@@ -1268,14 +1490,105 @@
         </div>
     </footer>
 
-    <!-- ==================== BOTÓN FLOTANTE WHATSAPP ==================== -->
-    <a href="https://wa.me/595985373995?text=Hola%20Dulce%20Ro%20😊%20quiero%20hacer%20un%20pedido" 
-       class="whatsapp-float" 
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Contactar por WhatsApp">
-        💬
-    </a>
+    <!-- ==================== FAQ CHATBOT FLOTANTE ==================== -->
+    <div class="faq-float">
+        <button class="faq-button" onclick="toggleFAQ()" aria-label="Preguntas Frecuentes">
+            💬
+        </button>
+        
+        <div class="faq-widget" id="faqWidget">
+            <div class="faq-header">
+                <h3>💬 Preguntas Frecuentes</h3>
+                <button class="faq-close" onclick="toggleFAQ()">✕</button>
+            </div>
+            
+            <div class="faq-body">
+                <div class="faq-greeting">
+                    ¡Hola! 👋 ¿En qué puedo ayudarte?
+                </div>
+                
+                <!-- Pregunta 1: Precios -->
+                <div class="faq-question" onclick="showAnswer(1)">
+                    <span class="faq-icon">💰</span>
+                    <span>¿Cuánto cuesta una torta?</span>
+                </div>
+                <div class="faq-answer" id="answer1">
+                    <h4>Nuestros Combos:</h4>
+                    <div class="faq-combo">
+                        <strong>COMBO 1</strong>
+                        • Torta de 1 kg con cobertura de chantilly + toppers<br>
+                        • 6 cupcakes con topper<br>
+                        <span class="faq-price">Gs. 135.000</span>
+                    </div>
+                    <div class="faq-combo">
+                        <strong>COMBO 2</strong>
+                        • Torta de 2 kg con cobertura de chantilly + toppers<br>
+                        • 10 cupcakes con topper<br>
+                        • 10 cookies<br>
+                        <span class="faq-price">Gs. 300.000</span>
+                    </div>
+                    <div class="faq-combo">
+                        <strong>COMBO 3</strong>
+                        • Torta de 3 kg con chantilly + toppers<br>
+                        • 50 bocaditos dulces<br>
+                        • 10 galletitas personalizadas<br>
+                        • 15 shots dulces<br>
+                        <span class="faq-price">Gs. 475.000</span>
+                    </div>
+                </div>
+                
+                <!-- Pregunta 2: Entregas -->
+                <div class="faq-question" onclick="showAnswer(2)">
+                    <span class="faq-icon">🚚</span>
+                    <span>¿Hacen entregas?</span>
+                </div>
+                <div class="faq-answer" id="answer2">
+                    <p>Sí, realizamos entregas en <strong>todo el país</strong>.</p>
+                    <p>Consultá el costo según tu zona.</p>
+                </div>
+                
+                <!-- Pregunta 3: Anticipación -->
+                <div class="faq-question" onclick="showAnswer(3)">
+                    <span class="faq-icon">⏰</span>
+                    <span>¿Cuánto tiempo de anticipación?</span>
+                </div>
+                <div class="faq-answer" id="answer3">
+                    <p>Las reservas son con <strong>48 horas de anticipación mínimo</strong>.</p>
+                    <p>Para pedidos grandes, recomendamos más tiempo.</p>
+                </div>
+                
+                <!-- Pregunta 4: Opciones especiales -->
+                <div class="faq-question" onclick="showAnswer(4)">
+                    <span class="faq-icon">🥗</span>
+                    <span>¿Tienen opciones sin azúcar/gluten?</span>
+                </div>
+                <div class="faq-answer" id="answer4">
+                    <p>Sí, adaptamos nuestros productos a las especificaciones del cliente.</p>
+                    <p>Opciones disponibles: sin azúcar, sin gluten, veganas, etc.</p>
+                </div>
+                
+                <!-- Pregunta 5: Formas de pago -->
+                <div class="faq-question" onclick="showAnswer(5)">
+                    <span class="faq-icon">💳</span>
+                    <span>¿Cómo puedo pagar?</span>
+                </div>
+                <div class="faq-answer" id="answer5">
+                    <p>Contamos con las siguientes formas de pago:</p>
+                    <p>✅ Código QR<br>
+                    ✅ Transferencias bancarias<br>
+                    ✅ Pagos en efectivo</p>
+                </div>
+                
+                <!-- Botón WhatsApp -->
+                <a href="https://wa.me/595985373995?text=Hola%20Dulce%20Ro%20👋%20Tengo%20una%20consulta" 
+                   class="faq-whatsapp-btn" 
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    💬 Hablar con nosotros
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- ==================== MODAL SUCCESS ==================== -->
     <div class="modal-overlay" id="modalSuccess">
@@ -1289,6 +1602,38 @@
 
     <!-- ==================== JAVASCRIPT ==================== -->
     <script>
+        // ==================== FAQ WIDGET ====================
+        
+        function toggleFAQ() {
+            const widget = document.getElementById('faqWidget');
+            widget.classList.toggle('active');
+        }
+
+        function showAnswer(questionNumber) {
+            // Close all answers
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            allAnswers.forEach(answer => {
+                if (answer.id !== `answer${questionNumber}`) {
+                    answer.classList.remove('active');
+                }
+            });
+            
+            // Toggle selected answer
+            const answer = document.getElementById(`answer${questionNumber}`);
+            answer.classList.toggle('active');
+        }
+
+        // Close FAQ widget when clicking outside
+        document.addEventListener('click', function(event) {
+            const faqFloat = document.querySelector('.faq-float');
+            const faqWidget = document.getElementById('faqWidget');
+            
+            if (faqWidget.classList.contains('active') && 
+                !faqFloat.contains(event.target)) {
+                faqWidget.classList.remove('active');
+            }
+        });
+
         // ==================== CONFIGURACIÓN INICIAL ====================
         
         // Configurar fecha mínima (48 horas desde hoy)
