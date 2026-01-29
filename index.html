@@ -116,13 +116,13 @@
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: #25D366;
             color: var(--white);
             box-shadow: var(--shadow-md);
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background: #20BA5A;
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
@@ -890,11 +890,8 @@
                     <span class="badge">🥗 Opciones Saludables</span>
                 </div>
                 
-                <a href="https://wa.me/595985373995?text=Hola%20Dulce%20Ro%20😊%20quiero%20hacer%20un%20pedido" 
-                   class="btn btn-whatsapp" 
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    💬 Pedir por WhatsApp
+                <a href="#pedido" class="btn btn-primary">
+                    Quiero realizar mi pedido
                 </a>
             </div>
         </div>
@@ -1256,7 +1253,7 @@
 
                 <!-- Botón de Envío -->
                 <button type="submit" class="btn btn-whatsapp btn-submit">
-                    💬 Enviar Pedido por WhatsApp
+                    Enviar pedido por WhatsApp
                 </button>
             </form>
         </div>
@@ -1284,8 +1281,8 @@
     <div class="modal-overlay" id="modalSuccess">
         <div class="modal-content">
             <div class="modal-icon">✅</div>
-            <h3>¡Pedido Enviado!</h3>
-            <p>Se abrió WhatsApp con tu pedido. Si no se abrió automáticamente, intentá de nuevo.</p>
+            <h3>¡Pedido Preparado!</h3>
+            <p>Ahora se abrirá WhatsApp con tu pedido completo. Solo tenés que enviarlo.</p>
             <button class="btn-close" onclick="closeModal()">Entendido</button>
         </div>
     </div>
