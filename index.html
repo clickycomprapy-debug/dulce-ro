@@ -724,9 +724,9 @@
         /* ==================== FAQ CHATBOT ==================== */
         .faq-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
+            bottom: 25px;
+            right: 25px;
+            z-index: 999;
         }
 
         .faq-button {
@@ -1033,37 +1033,401 @@
             background: var(--primary-dark);
         }
 
-        /* ==================== RESPONSIVE ==================== */
-        @media (min-width: 640px) {
-            .form-row {
-                grid-template-columns: 1fr 1fr;
+        /* ==================== RESPONSIVE - MOBILE FIRST ==================== */
+        
+        /* BASE MOBILE (0-640px) */
+        @media (max-width: 640px) {
+            html {
+                font-size: 15px;
             }
 
-            .galeria-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .container {
+                padding: 0 1rem;
+            }
+
+            /* Hero Mobile */
+            .hero {
+                min-height: auto;
+                padding: 6rem 1rem 3rem;
+            }
+
+            .hero-content {
+                padding: 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                line-height: 1.1;
+                margin-bottom: 0.75rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-badges {
+                flex-direction: column;
+                gap: 0.75rem;
+                margin-bottom: 2rem;
             }
 
             .badge {
+                width: 100%;
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 1.1rem 2rem;
                 font-size: 1rem;
-                padding: 0.7rem 1.5rem;
+                min-height: 50px;
+            }
+
+            /* Sections Mobile */
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+                padding: 0 0.5rem;
+            }
+
+            /* About Mobile */
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-text h2 {
+                font-size: 2rem;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .feature-box {
+                padding: 1.25rem;
+            }
+
+            /* Products Mobile */
+            .productos-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .producto-header {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .producto-icon {
+                font-size: 2.5rem;
+            }
+
+            .producto-title {
+                font-size: 1.5rem;
+            }
+
+            .producto-body {
+                padding: 1.25rem;
+            }
+
+            /* Gallery Mobile */
+            .galeria-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .galeria-info {
+                padding: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .galeria-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .galeria-item {
+                font-size: 1.3rem;
+            }
+
+            /* Form Mobile - Critical */
+            .form-pedido {
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+
+            .form-section {
+                margin-bottom: 1.75rem;
+                padding-bottom: 1.75rem;
+            }
+
+            .form-section-title {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .form-group {
+                margin-bottom: 1.25rem;
+            }
+
+            .form-group label {
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.95rem;
+                font-size: 16px;
+                min-height: 48px;
+                width: 100%;
+            }
+
+            .form-group textarea {
+                min-height: 100px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .form-help {
+                font-size: 0.8rem;
+            }
+
+            .form-notice {
+                padding: 0.85rem 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .notice-icon {
+                font-size: 1.3rem;
+            }
+
+            .form-notice p {
+                font-size: 0.85rem;
+            }
+
+            /* Radio Cards Mobile */
+            .radio-group {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .radio-content {
+                padding: 1rem;
+                min-height: auto;
+            }
+
+            .radio-icon {
+                font-size: 1.75rem;
+            }
+
+            .radio-text {
+                font-size: 0.85rem;
+            }
+
+            /* Radio Inline Mobile */
+            .radio-group-inline {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .radio-option {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .radio-label {
+                padding: 0.95rem;
+            }
+
+            /* Submit Button Mobile */
+            .btn-submit {
+                width: 100%;
+                padding: 1.15rem;
+                font-size: 1.05rem;
+                min-height: 52px;
+            }
+
+            /* FAQ Widget Mobile */
+            .faq-float {
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .faq-button {
+                width: 55px;
+                height: 55px;
+                font-size: 26px;
+            }
+
+            .faq-widget {
+                width: calc(100vw - 30px);
+                max-height: 75vh;
+                bottom: 75px;
+                right: 15px;
+                left: 15px;
+            }
+
+            .faq-header {
+                padding: 1rem;
+            }
+
+            .faq-header h3 {
+                font-size: 1.1rem;
+            }
+
+            .faq-body {
+                padding: 0.75rem;
+            }
+
+            .faq-greeting {
+                padding: 0.85rem;
+                font-size: 0.9rem;
+            }
+
+            .faq-question {
+                padding: 0.85rem;
+                font-size: 0.85rem;
+            }
+
+            .faq-icon {
+                font-size: 1.1rem;
+            }
+
+            .faq-answer {
+                padding: 0.85rem;
+                font-size: 0.85rem;
+            }
+
+            .faq-combo {
+                padding: 0.65rem;
+                font-size: 0.85rem;
+            }
+
+            /* Footer Mobile */
+            footer {
+                padding: 2rem 1rem;
+            }
+
+            .footer-brand {
+                font-size: 1.3rem;
+            }
+
+            /* Modal Mobile */
+            .modal-content {
+                max-width: 90%;
+                padding: 2rem 1.5rem;
+            }
+
+            .modal-icon {
+                font-size: 3rem;
+            }
+
+            .modal-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .modal-content p {
+                font-size: 0.95rem;
             }
         }
 
-        @media (min-width: 768px) {
+        /* TABLET (641px - 968px) */
+        @media (min-width: 641px) and (max-width: 968px) {
+            .container {
+                padding: 0 2rem;
+            }
+
+            .hero {
+                padding: 8rem 2rem 4rem;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.3rem;
+            }
+
+            .hero-badges {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .badge {
+                flex: 0 1 calc(50% - 0.5rem);
+            }
+
             .section {
                 padding: 4rem 0;
             }
 
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-features {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+            }
+
             .productos-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.75rem;
             }
 
             .galeria-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .radio-group {
                 grid-template-columns: repeat(3, 1fr);
+            }
+
+            .faq-widget {
+                width: 380px;
+                max-height: 550px;
             }
         }
 
-        @media (min-width: 1024px) {
+        /* DESKTOP (969px+) */
+        @media (min-width: 969px) {
             .section {
                 padding: 5rem 0;
             }
@@ -1072,27 +1436,60 @@
                 grid-template-columns: repeat(3, 1fr);
             }
 
-            .whatsapp-float {
+            .galeria-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .faq-button {
                 width: 65px;
                 height: 65px;
                 font-size: 32px;
-                bottom: 30px;
-                right: 30px;
+            }
+
+            .faq-float {
+                bottom: 25px;
+                right: 25px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
-        /* Mejora de accesibilidad táctil */
+        /* LARGE DESKTOP (1200px+) */
+        @media (min-width: 1200px) {
+            .hero {
+                min-height: 100vh;
+            }
+        }
+
+        /* LANDSCAPE MOBILE FIX */
+        @media (max-width: 968px) and (orientation: landscape) {
+            .hero {
+                min-height: auto;
+                padding: 4rem 1.5rem 2rem;
+            }
+
+            .faq-widget {
+                max-height: 60vh;
+            }
+        }
+
+        /* TOUCH DEVICE OPTIMIZATIONS */
         @media (hover: none) and (pointer: coarse) {
             .btn,
             .form-group input,
             .form-group select,
-            .form-group textarea {
+            .form-group textarea,
+            .radio-label,
+            .faq-question,
+            .btn-close {
                 min-height: 48px;
             }
 
             .form-group input,
             .form-group select {
-                font-size: 16px; /* Previene zoom en iOS */
+                font-size: 16px;
             }
         }
     </style>
