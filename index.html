@@ -370,6 +370,58 @@
             aspect-ratio: 1;
             border-radius: 15px;
             overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .galeria-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Gallery items with images */
+        .galeria-item-image {
+            background: var(--white);
+        }
+
+        .galeria-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .galeria-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: var(--transition);
+            color: var(--white);
+        }
+
+        .galeria-item:hover .galeria-overlay {
+            transform: translateY(0);
+        }
+
+        .galeria-overlay h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+            color: var(--white);
+        }
+
+        .galeria-overlay p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+
+        /* Gallery placeholder items */
+        .galeria-item-placeholder {
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             display: flex;
             align-items: center;
@@ -379,18 +431,10 @@
             font-weight: 600;
             text-align: center;
             padding: 1.5rem;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            position: relative;
         }
 
-        .galeria-item:nth-child(even) {
+        .galeria-item-placeholder:nth-child(even) {
             background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
-        }
-
-        .galeria-item:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-md);
         }
 
         /* ==================== FORMULARIO DE PEDIDO ==================== */
@@ -1002,17 +1046,41 @@
             <p class="section-subtitle">Cada creación hecha con amor</p>
             
             <div class="galeria-info">
-                <h3>📸 ¡Próximamente con imágenes reales!</h3>
-                <p>Estamos preparando nuestra galería con fotos de nuestros productos. Mientras tanto, seguinos en redes para ver todas nuestras creaciones.</p>
+                <h3>📸 Nuestras Creaciones</h3>
+                <p>Cada torta es única y hecha con dedicación. ¡Mirá algunos de nuestros trabajos!</p>
             </div>
             
             <div class="galeria-grid">
-                <div class="galeria-item">🎂<br>Tortas<br>Personalizadas</div>
-                <div class="galeria-item">🧁<br>Cupcakes<br>Decorados</div>
-                <div class="galeria-item">🥐<br>Empanadas<br>Caseras</div>
-                <div class="galeria-item">🍪<br>Cookies &<br>Brownies</div>
-                <div class="galeria-item">🥗<br>Opciones<br>Fit</div>
-                <div class="galeria-item">✨<br>Pedidos<br>Especiales</div>
+                <div class="galeria-item galeria-item-image">
+                    <img src="images/torta-chocolate.jpg" alt="Torta de Chocolate" loading="lazy">
+                    <div class="galeria-overlay">
+                        <h4>Torta de Chocolate</h4>
+                        <p>Con relleno y decoración premium</p>
+                    </div>
+                </div>
+                <div class="galeria-item galeria-item-image">
+                    <img src="images/torta-pastel.jpg" alt="Torta Decorada" loading="lazy">
+                    <div class="galeria-overlay">
+                        <h4>Torta Decorada</h4>
+                        <p>Diseños personalizados para tu evento</p>
+                    </div>
+                </div>
+                <div class="galeria-item galeria-item-image">
+                    <img src="images/torta-red-velvet.jpg" alt="Torta Red Velvet" loading="lazy">
+                    <div class="galeria-overlay">
+                        <h4>Torta Red Velvet</h4>
+                        <p>Con flores comestibles</p>
+                    </div>
+                </div>
+                <div class="galeria-item galeria-item-image">
+                    <img src="images/torta-vainilla.jpg" alt="Torta de Vainilla" loading="lazy">
+                    <div class="galeria-overlay">
+                        <h4>Torta de Vainilla</h4>
+                        <p>Suave y deliciosa</p>
+                    </div>
+                </div>
+                <div class="galeria-item galeria-item-placeholder">🥐<br>Empanadas<br>Caseras</div>
+                <div class="galeria-item galeria-item-placeholder">🥗<br>Opciones<br>Fit</div>
             </div>
         </div>
     </section>
