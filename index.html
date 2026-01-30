@@ -2037,183 +2037,310 @@
         </div>
     </section>
 
-    <!-- ==================== FORMULARIO DE PEDIDO ==================== -->
-    <section class="pedido section" id="pedido">
-        <div class="container">
-            <h2 class="section-title">Hacé tu Pedido</h2>
-            <p class="section-subtitle">Completá el formulario y envianos tu pedido por WhatsApp</p>
-            
-            <!-- Nota importante -->
-            <div class="form-notice">
-                <span class="notice-icon">⏰</span>
-                <p>Pedidos con <strong>48 horas de anticipación</strong> mínimo</p>
-            </div>
-            
-            <form class="form-pedido" id="formPedido">
-                <!-- Datos de Contacto -->
-                <div class="form-section">
-                    <h3 class="form-section-title">📱 Tus Datos</h3>
-                    
-                    <div class="form-group">
-                        <label for="nombre">Nombre Completo *</label>
-                        <input type="text" id="nombre" name="nombre" required placeholder="¿Cómo te llamás?">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telefono">Teléfono / WhatsApp *</label>
-                        <input type="tel" id="telefono" name="telefono" required placeholder="+595 981 234 567">
-                    </div>
-                </div>
-
-                <!-- Tipo de Producto -->
-                <div class="form-section">
-                    <h3 class="form-section-title">🍰 ¿Qué te gustaría pedir?</h3>
-                    
-                    <div class="form-group">
-                        <label>Tipo de Producto *</label>
-                        <div class="radio-group">
-                            <label class="radio-card">
-                                <input type="radio" name="tipoProducto" value="Dulces" required>
-                                <span class="radio-content">
-                                    <span class="radio-icon">🍰</span>
-                                    <span class="radio-text">Dulces</span>
-                                </span>
-                            </label>
-                            <label class="radio-card">
-                                <input type="radio" name="tipoProducto" value="Salados" required>
-                                <span class="radio-content">
-                                    <span class="radio-icon">🥐</span>
-                                    <span class="radio-text">Salados</span>
-                                </span>
-                            </label>
-                            <label class="radio-card">
-                                <input type="radio" name="tipoProducto" value="Fit y Saludable" required>
-                                <span class="radio-content">
-                                    <span class="radio-icon">🥗</span>
-                                    <span class="radio-text">Fit</span>
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="producto">Producto Específico *</label>
-                        <input type="text" id="producto" name="producto" required placeholder="Ej: Torta de chocolate, Empanadas de carne">
-                    </div>
-                </div>
-
-                <!-- Detalles del Pedido -->
-                <div class="form-section">
-                    <h3 class="form-section-title">📋 Detalles del Pedido</h3>
-                    
-                    <div class="form-group">
-                        <label for="ocasion">Ocasión *</label>
-                        <select id="ocasion" name="ocasion" required>
-                            <option value="">¿Para qué es?</option>
-                            <option value="Cumpleaños">🎂 Cumpleaños</option>
-                            <option value="Evento">🎉 Evento</option>
-                            <option value="Regalo">🎁 Regalo</option>
-                            <option value="Consumo personal">☕ Consumo personal</option>
-                            <option value="Otro">✨ Otro</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="fechaEvento">Fecha de Entrega *</label>
-                        <input type="date" id="fechaEvento" name="fechaEvento" required>
-                        <small class="form-help">Mínimo 48 horas de anticipación</small>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="cantidad">Cantidad *</label>
-                        <input type="number" id="cantidad" name="cantidad" min="1" required placeholder="Personas o unidades">
-                        <small class="form-help">Para tortas: cantidad de personas. Para otros: unidades.</small>
-                    </div>
-                </div>
-
-                <!-- Personalización -->
-                <div class="form-section">
-                    <h3 class="form-section-title">🎨 Personalización</h3>
-                    
-                    <div class="form-group">
-                        <label>¿Querés personalizarlo? *</label>
-                        <div class="radio-group radio-group-inline">
-                            <label class="radio-option">
-                                <input type="radio" name="personalizacion" value="Si" required onchange="togglePersonalizacionDetalle(true)">
-                                <span class="radio-label">Sí</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="personalizacion" value="No" required onchange="togglePersonalizacionDetalle(false)">
-                                <span class="radio-label">No</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group" id="personalizacionDetalle" style="display: none;">
-                        <label for="detallePersonalizacion">Contanos qué te gustaría</label>
-                        <textarea id="detallePersonalizacion" name="detallePersonalizacion" placeholder="Colores, nombre, edad, temática, mensaje, etc."></textarea>
-                    </div>
-                </div>
-
-                <!-- Preferencias -->
-                <div class="form-section">
-                    <h3 class="form-section-title">🌿 Preferencias o Restricciones</h3>
-                    
-                    <div class="form-group">
-                        <label for="preferencias">Restricciones Alimentarias</label>
-                        <select id="preferencias" name="preferencias">
-                            <option value="Ninguna">Ninguna</option>
-                            <option value="Sin azúcar">Sin azúcar</option>
-                            <option value="Integral">Integral</option>
-                            <option value="Sin gluten">Sin gluten</option>
-                            <option value="Sin lactosa">Sin lactosa</option>
-                            <option value="Vegano">Vegano</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Entrega -->
-                <div class="form-section">
-                    <h3 class="form-section-title">🚚 Entrega</h3>
-                    
-                    <div class="form-group">
-                        <label>Tipo de Entrega *</label>
-                        <div class="radio-group radio-group-inline">
-                            <label class="radio-option">
-                                <input type="radio" name="tipoEntrega" value="Retiro" required onchange="toggleZonaEntrega(false)">
-                                <span class="radio-label">Retiro</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="tipoEntrega" value="Envío" required onchange="toggleZonaEntrega(true)">
-                                <span class="radio-label">Envío</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group" id="zonaEntregaGroup" style="display: none;">
-                        <label for="zonaEntrega">¿A qué zona?</label>
-                        <input type="text" id="zonaEntrega" name="zonaEntrega" placeholder="Barrio o ciudad">
-                    </div>
-                </div>
-
-                <!-- Comentarios -->
-                <div class="form-section">
-                    <h3 class="form-section-title">💬 Comentarios</h3>
-                    
-                    <div class="form-group">
-                        <label for="comentarios">¿Algo más que querés agregar?</label>
-                        <textarea id="comentarios" name="comentarios" placeholder="Presupuesto aproximado, dudas, consultas, etc."></textarea>
-                    </div>
-                </div>
-
-                <!-- Botón de Envío -->
-                <button type="submit" class="btn btn-whatsapp btn-submit">
-                    Enviar pedido por WhatsApp
-                </button>
-            </form>
+<!-- ==================== FORMULARIO DE PEDIDO INTELIGENTE ==================== -->
+<section class="pedido section" id="pedido">
+    <div class="container">
+        <h2 class="section-title">Hacé tu Pedido</h2>
+        <p class="section-subtitle">Sistema de pedido inteligente con cálculo automático</p>
+        
+        <!-- Nota de anticipación -->
+        <div class="form-notice">
+            <span class="notice-icon">⏰</span>
+            <p>Pedidos con <strong>48 horas de anticipación</strong> mínimo</p>
         </div>
-    </section>
+        
+        <form class="form-pedido" id="orderForm">
+            
+            <!-- DATOS DEL CLIENTE -->
+            <div class="form-section">
+                <h3 class="form-section-title">📱 Tus Datos</h3>
+                
+                <div class="form-group">
+                    <label for="nombreCliente">Nombre Completo *</label>
+                    <input type="text" id="nombreCliente" name="nombreCliente" required placeholder="¿Cómo te llamás?">
+                </div>
 
+                <div class="form-group">
+                    <label for="telefonoCliente">Teléfono / WhatsApp *</label>
+                    <input type="tel" id="telefonoCliente" name="telefonoCliente" required placeholder="+595 981 234 567">
+                </div>
+            </div>
+
+            <!-- SELECCIÓN DE PRODUCTO INTELIGENTE -->
+            <div class="form-section">
+                <h3 class="form-section-title">🍰 Seleccioná tu Producto</h3>
+                
+                <div class="product-selector">
+                    <label for="productSelector">Producto *</label>
+                    <select id="productSelector" required>
+                        <option value="">Cargando productos...</option>
+                    </select>
+                </div>
+                
+                <!-- Contador de Cantidad -->
+                <div class="form-group">
+                    <label>Cantidad *</label>
+                    <div class="quantity-counter">
+                        <button type="button" class="quantity-btn" id="decreaseQty">−</button>
+                        <input type="number" id="quantityInput" class="quantity-input" value="1" min="1" readonly>
+                        <button type="button" class="quantity-btn" id="increaseQty">+</button>
+                    </div>
+                    <small class="form-help">Para empanadas: mínimo 5 unidades</small>
+                </div>
+                
+                <!-- Opciones de cocción (solo para empanadas) -->
+                <div id="cookingOptions" class="personalization-options">
+                    <div class="form-group">
+                        <label>¿Cómo las querés?</label>
+                        <div class="radio-group-inline">
+                            <label class="radio-option">
+                                <input type="radio" name="coccion" value="Fritas">
+                                <span class="radio-label">Fritas</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="coccion" value="Al Horno">
+                                <span class="radio-label">Al Horno</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PERSONALIZACIÓN INTELIGENTE -->
+            <div class="form-section">
+                <h3 class="form-section-title">🎨 Personalización</h3>
+                
+                <div class="form-group">
+                    <label>¿Querés personalizarlo? *</label>
+                    <div class="radio-group-inline">
+                        <label class="radio-option">
+                            <input type="radio" name="personalizacion" value="Si" required>
+                            <span class="radio-label">Sí</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="personalizacion" value="No" required>
+                            <span class="radio-label">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Opciones de personalización (se muestra solo si elige Sí) -->
+                <div id="personalizationOptions" class="personalization-options">
+                    <div class="form-group">
+                        <label for="personalizacionNombre">Nombre en la torta</label>
+                        <input type="text" id="personalizacionNombre" placeholder="Ej: María">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="personalizacionEdad">Edad (opcional)</label>
+                        <input type="number" id="personalizacionEdad" placeholder="Ej: 5">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Colores</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="colores" value="Rosado">
+                                <span>Rosado</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="colores" value="Celeste">
+                                <span>Celeste</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="colores" value="Amarillo">
+                                <span>Amarillo</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="colores" value="Verde">
+                                <span>Verde</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tipoEvento">Tipo de Evento</label>
+                        <select id="tipoEvento">
+                            <option value="">Seleccionar...</option>
+                            <option value="Cumpleaños">Cumpleaños</option>
+                            <option value="Boda">Boda</option>
+                            <option value="Graduación">Graduación</option>
+                            <option value="Baby Shower">Baby Shower</option>
+                            <option value="Corporativo">Corporativo</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tematica">Temática</label>
+                        <input type="text" id="tematica" placeholder="Ej: Princesas, Superhéroes">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensajePersonalizado">Mensaje especial</label>
+                        <textarea id="mensajePersonalizado" placeholder="Ej: Feliz Cumpleaños"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CANTIDAD DE PERSONAS -->
+            <div class="form-section">
+                <h3 class="form-section-title">👥 Cantidad de Invitados</h3>
+                
+                <div class="form-group">
+                    <label for="cantidadPersonas">¿Para cuántas personas? *</label>
+                    <input type="number" id="cantidadPersonas" name="cantidadPersonas" min="1" value="1" required>
+                    <small class="form-help">Si es para 10+ personas, se marcará como pedido grande</small>
+                </div>
+            </div>
+
+            <!-- FECHA DE ENTREGA -->
+            <div class="form-section">
+                <h3 class="form-section-title">📅 Fecha de Entrega</h3>
+                
+                <div class="form-group">
+                    <label for="fechaEntrega">Fecha deseada *</label>
+                    <input type="date" id="fechaEntrega" name="fechaEntrega" required>
+                    <small class="form-help">Mínimo 48 horas de anticipación</small>
+                </div>
+            </div>
+
+            <!-- RESTRICCIONES ALIMENTARIAS -->
+            <div class="form-section">
+                <h3 class="form-section-title">🌿 Restricciones Alimentarias</h3>
+                
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="restrictions" value="Sin azúcar">
+                        <span>Sin azúcar</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="restrictions" value="Integral">
+                        <span>Integral</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="restrictions" value="Sin gluten">
+                        <span>Sin gluten</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="restrictions" value="Sin lactosa">
+                        <span>Sin lactosa</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="restrictions" value="Vegano">
+                        <span>Vegano</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="restrictions" value="Ninguna" checked>
+                        <span>Ninguna</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- ENTREGA -->
+            <div class="form-section">
+                <h3 class="form-section-title">🚚 Entrega</h3>
+                
+                <div class="form-group">
+                    <label>Tipo de Entrega *</label>
+                    <div class="radio-group-inline">
+                        <label class="radio-option">
+                            <input type="radio" name="tipoEntrega" value="Retiro" required checked>
+                            <span class="radio-label">Retiro</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="tipoEntrega" value="Envío" required>
+                            <span class="radio-label">Envío</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="deliveryZones" class="delivery-zones">
+                    <div class="form-group">
+                        <label for="deliveryZone">Seleccioná tu zona</label>
+                        <select id="deliveryZone">
+                            <option value="">Seleccionar zona...</option>
+                            <option value="fernando-sur">Fernando de la Mora (Sur)</option>
+                            <option value="fernando-norte">Fernando de la Mora (Norte)</option>
+                            <option value="san-lorenzo">San Lorenzo</option>
+                            <option value="capiata">Capiatá</option>
+                            <option value="luque">Luque</option>
+                            <option value="villa-elisa">Villa Elisa</option>
+                            <option value="nemby">Ñemby</option>
+                            <option value="asuncion">Asunción</option>
+                            <option value="ypane">Ypané</option>
+                            <option value="mariano">Mariano Roque Alonso</option>
+                            <option value="otra">Otra zona</option>
+                        </select>
+                        <small class="form-help zone-info" id="zoneInfo"></small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÉTODO DE PAGO -->
+            <div class="form-section">
+                <h3 class="form-section-title">💳 Método de Pago</h3>
+                
+                <div class="radio-group-inline">
+                    <label class="radio-option">
+                        <input type="radio" name="metodoPago" value="Código QR" required>
+                        <span class="radio-label">📱 QR</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="metodoPago" value="Efectivo" required>
+                        <span class="radio-label">💵 Efectivo</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="metodoPago" value="Transferencia" required>
+                        <span class="radio-label">🏦 Transferencia</span>
+                    </label>
+                </div>
+                
+                <small class="form-help" style="margin-top: 0.5rem; display: block;">
+                    Alias para transferencias: <strong>DULCERO.PY</strong>
+                </small>
+            </div>
+
+            <!-- PRECIO CALCULADO AUTOMÁTICAMENTE -->
+            <div class="price-display">
+                <div class="price-row">
+                    <span class="price-label">Subtotal:</span>
+                    <span class="price-value" id="subtotalAmount">Gs. 0</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">Delivery:</span>
+                    <span class="price-value" id="deliveryAmount">Gratis</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">TOTAL:</span>
+                    <span class="price-value price-total" id="totalAmount">Gs. 0</span>
+                </div>
+            </div>
+
+            <!-- Alerta de mínimo -->
+            <div class="minimum-alert" id="minimumAlert">
+                <span class="minimum-alert-icon">⚠️</span>
+                <span class="minimum-alert-text">
+                    El pedido mínimo es de <strong>Gs. 25.000</strong>
+                </span>
+            </div>
+
+            <!-- COMENTARIOS -->
+            <div class="form-section">
+                <h3 class="form-section-title">💬 Comentarios Adicionales</h3>
+                
+                <div class="form-group">
+                    <textarea id="comentariosExtra" placeholder="Cualquier detalle adicional que quieras agregar..." style="min-height: 80px;"></textarea>
+                </div>
+            </div>
+
+            <!-- BOTÓN DE ENVÍO -->
+            <button type="submit" class="btn btn-whatsapp btn-submit" id="submitOrderBtn">
+                Enviar pedido por WhatsApp
+            </button>
+        </form>
+    </div>
+</section>
     <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="container">
