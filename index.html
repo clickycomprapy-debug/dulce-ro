@@ -1307,6 +1307,156 @@
             background: var(--primary-dark);
         }
 
+        /* ==================== SISTEMA DE PESTAÑAS ==================== */
+        .section-content {
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+            animation: fadeInSection 0.4s ease-out;
+        }
+
+        @keyframes fadeInSection {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #homeSection {
+            display: block;
+        }
+
+        body.section-active #homeSection {
+            display: none;
+        }
+
+        .back-to-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            z-index: 1001;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            display: none;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        body.section-active .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-to-home:hover {
+            background: var(--primary-dark);
+            transform: translateX(-3px);
+        }
+
+        .home-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0 2rem;
+        }
+
+        .selector-card {
+            background: var(--white);
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 3px solid transparent;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .selector-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .selector-card.dulces:hover {
+            border-color: #ffd6d6;
+            background: linear-gradient(135deg, #fff 0%, #fff5f7 100%);
+        }
+
+        .selector-card.salados:hover {
+            border-color: #fff4d6;
+            background: linear-gradient(135deg, #fff 0%, #fffef0 100%);
+        }
+
+        .selector-card.fit:hover {
+            border-color: #d6f4dd;
+            background: linear-gradient(135deg, #fff 0%, #f5fff8 100%);
+        }
+
+        .selector-card.galeria:hover {
+            border-color: var(--accent);
+        }
+
+        .selector-icon {
+            font-size: 3.5rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .selector-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .selector-subtitle {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .home-divider {
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .home-divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+        }
+
+        .home-divider span {
+            background: var(--secondary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            color: var(--gray);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-content {
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
         /* ==================== RESPONSIVE - MOBILE FIRST ==================== */
         
         /* BASE MOBILE (0-640px) */
@@ -1690,6 +1840,31 @@
             .btn-close {
                 padding: 0.7rem 1.75rem;
             }
+
+            /* Tab System Mobile */
+            .home-selector {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .selector-card {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .selector-icon {
+                font-size: 2.5rem;
+            }
+
+            .selector-title {
+                font-size: 1.3rem;
+            }
+
+            .back-to-home {
+                top: 15px;
+                left: 15px;
+                padding: 0.6rem 1.25rem;
+                font-size: 0.85rem;
+            }
         }
 
         /* TABLET (641px - 968px) */
@@ -1759,6 +1934,11 @@
             .faq-widget {
                 width: 380px;
                 max-height: 550px;
+            }
+
+            /* Tab System Tablet */
+            .home-selector {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1831,21 +2011,51 @@
     </style>
 </head>
 <body>
-    <!-- ==================== HERO SECTION ==================== -->
-    <section class="hero">
+    <!-- ==================== BOTÓN VOLVER AL INICIO ==================== -->
+    <a href="#" class="back-to-home">← Volver al inicio</a>
+
+    <!-- ==================== HOME SECTION (SELECTOR) ==================== -->
+    <section class="hero" id="homeSection">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-logo">Dulce Ro</h1>
                 <p class="hero-tagline">Dulces · Salados · Fit y Saludable</p>
                 <p class="hero-subtitle">Variedad para todos los gustos y ocasiones</p>
                 
-                <div class="hero-badges">
-                    <span class="badge">🍰 Dulces Artesanales</span>
-                    <span class="badge">🥐 Salados Caseros</span>
-                    <span class="badge">🥗 Opciones Saludables</span>
+                <!-- Selector de Secciones -->
+                <div class="home-selector">
+                    <div class="selector-card dulces" data-section="productosSection">
+                        <span class="selector-icon">🍰</span>
+                        <h3 class="selector-title">Tortas y Dulces</h3>
+                        <p class="selector-subtitle">Postres irresistibles</p>
+                    </div>
+
+                    <div class="selector-card salados" data-section="productosSection">
+                        <span class="selector-icon">🥐</span>
+                        <h3 class="selector-title">Salados Caseros</h3>
+                        <p class="selector-subtitle">Perfectos para cualquier momento</p>
+                    </div>
+
+                    <div class="selector-card fit" data-section="productosSection">
+                        <span class="selector-icon">🥗</span>
+                        <h3 class="selector-title">Opciones Saludables</h3>
+                        <p class="selector-subtitle">Delicioso sin culpa</p>
+                    </div>
+
+                    <div class="selector-card galeria" data-section="galeriaSection">
+                        <span class="selector-icon">🖼️</span>
+                        <h3 class="selector-title">Nuestros Trabajos</h3>
+                        <p class="selector-subtitle">Cada creación hecha con amor</p>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="home-divider">
+                    <span>o hacé tu pedido ahora</span>
                 </div>
                 
-                <a href="#pedido" class="btn btn-primary">
+                <!-- CTA Principal -->
+                <a href="#pedidoSection" class="btn btn-primary">
                     Quiero realizar mi pedido
                 </a>
             </div>
@@ -1853,6 +2063,7 @@
     </section>
 
     <!-- ==================== PRODUCTOS ==================== -->
+    <div id="productosSection" class="section-content">
     <section class="productos section" id="productos">
         <div class="container">
             <h2 class="section-title">Nuestros Productos</h2>
@@ -1990,8 +2201,10 @@
             </div>
         </div>
     </section>
+    </div>
 
     <!-- ==================== GALERÍA ==================== -->
+    <div id="galeriaSection" class="section-content">
     <section class="galeria section" id="galeria">
         <div class="container">
             <h2 class="section-title">Nuestros Trabajos</h2>
@@ -2036,8 +2249,10 @@
             </div>
         </div>
     </section>
+    </div>
 
 <!-- ==================== FORMULARIO DE PEDIDO INTELIGENTE ==================== -->
+<div id="pedidoSection" class="section-content">
 <section class="pedido section" id="pedido">
     <div class="container">
         <h2 class="section-title">Hacé tu Pedido</h2>
@@ -2341,6 +2556,8 @@
         </form>
     </div>
 </section>
+</div>
+
     <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="container">
@@ -2695,6 +2912,109 @@
                 });
                 card.classList.toggle('active');
             });
+        });
+    </script>
+
+    <!-- Sistema de Navegación por Pestañas -->
+    <script>
+        class TabNavigator {
+            constructor() {
+                this.currentSection = null;
+                this.init();
+            }
+            
+            init() {
+                // Setup click handlers for selector cards
+                document.querySelectorAll('.selector-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        const targetSection = card.dataset.section;
+                        this.showSection(targetSection);
+                    });
+                });
+                
+                // Setup back to home button
+                const backBtn = document.querySelector('.back-to-home');
+                if (backBtn) {
+                    backBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.showHome();
+                    });
+                }
+                
+                // Handle pedido button clicks
+                document.querySelectorAll('a[href="#pedidoSection"]').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.showSection('pedidoSection');
+                    });
+                });
+                
+                // Handle browser back button
+                window.addEventListener('popstate', (e) => {
+                    if (e.state && e.state.section) {
+                        this.showSection(e.state.section, false);
+                    } else {
+                        this.showHome(false);
+                    }
+                });
+            }
+            
+            showSection(sectionId, updateHistory = true) {
+                // Hide all sections
+                document.querySelectorAll('.section-content').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show selected section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    document.body.classList.add('section-active');
+                    this.currentSection = sectionId;
+                    
+                    // Scroll to top smoothly
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // Update browser history
+                    if (updateHistory) {
+                        history.pushState(
+                            { section: sectionId }, 
+                            '', 
+                            `#${sectionId}`
+                        );
+                    }
+                }
+            }
+            
+            showHome(updateHistory = true) {
+                // Hide all sections
+                document.querySelectorAll('.section-content').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show home
+                document.body.classList.remove('section-active');
+                this.currentSection = null;
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Update browser history
+                if (updateHistory) {
+                    history.pushState({ section: 'home' }, '', window.location.pathname);
+                }
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            window.tabNavigator = new TabNavigator();
+            
+            // Check if there's a hash in URL on load
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                window.tabNavigator.showSection(hash, false);
+            }
         });
     </script>
 </body>
