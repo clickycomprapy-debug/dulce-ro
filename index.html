@@ -2553,5 +2553,22 @@
             observer.observe(el);
         });
     </script>
+
+    <!-- ==================== SCRIPTS DEL SISTEMA DE PEDIDOS ==================== -->
+    <script src="products-data.js"></script>
+    <script src="order-system.js"></script>
+    
+    <!-- Acordeones de Productos -->
+    <script>
+        document.querySelectorAll('.producto-card').forEach(card => {
+            const header = card.querySelector('.producto-header');
+            header.addEventListener('click', () => {
+                document.querySelectorAll('.producto-card').forEach(other => {
+                    if (other !== card) other.classList.remove('active');
+                });
+                card.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
