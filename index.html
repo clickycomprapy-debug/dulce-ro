@@ -1307,6 +1307,229 @@
             background: var(--primary-dark);
         }
 
+        /* ==================== FORMULARIO OPTIMIZADO - PRODUCTOS ==================== */
+        
+        .product-category {
+            margin-bottom: 2rem;
+        }
+
+        .category-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .products-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .product-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--white);
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .product-row:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .product-info {
+            flex: 1;
+            padding-right: 1rem;
+        }
+
+        .product-name {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .product-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 0.25rem;
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+        }
+
+        .product-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .qty-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary);
+            background: var(--white);
+            color: var(--primary);
+            border-radius: 8px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .qty-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .qty-btn:active {
+            transform: scale(0.95);
+        }
+
+        .qty-input {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            color: var(--dark);
+        }
+
+        .qty-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Order Errors */
+        #orderErrors {
+            margin: 1rem 0;
+        }
+
+        .error-msg {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            color: #856404;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Mobile Optimizations for Product List */
+        @media (max-width: 640px) {
+            .product-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .product-info {
+                padding-right: 0;
+                width: 100%;
+            }
+
+            .product-controls {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .qty-btn {
+                width: 48px;
+                height: 48px;
+            }
+
+            .qty-input {
+                width: 80px;
+                height: 48px;
+            }
+        }
+
+        /* ==================== TESTIMONIOS ==================== */
+        .testimonials-section {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid var(--primary);
+        }
+
+        .testimonials-section h4 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .testimonial-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .testimonial-item {
+            background: var(--white);
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .testimonial-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .testimonial-author::before {
+            content: '— ';
+        }
+
+        @media (max-width: 640px) {
+            .testimonials-section {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .testimonials-section h4 {
+                font-size: 1.15rem;
+            }
+
+            .testimonial-item {
+                padding: 0.9rem 1rem;
+            }
+        }
+
         /* ==================== SISTEMA DE PESTAÑAS ==================== */
         .section-content {
             display: none;
@@ -2199,6 +2422,37 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Testimonios -->
+            <div class="testimonials-section">
+                <h4>Otras personas dicen:</h4>
+                <div class="testimonial-list">
+                    <div class="testimonial-item">
+                        <div class="testimonial-text">"La mejor torta, riquísimo. Recomendado."</div>
+                        <div class="testimonial-author">Noelia González</div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-text">"Muy rico y fresco, ideal para cumpleaños."</div>
+                        <div class="testimonial-author">María López</div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-text">"Hermosa presentación y excelente sabor."</div>
+                        <div class="testimonial-author">Carlos Benítez</div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-text">"Barato y rico, vuelvo a comprar."</div>
+                        <div class="testimonial-author">Pedro Cardozo</div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-text">"Las empanadas espectaculares."</div>
+                        <div class="testimonial-author">Ana Rojas</div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-text">"Perfecto para reuniones."</div>
+                        <div class="testimonial-author">Luis Fernández</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     </div>
@@ -2251,12 +2505,12 @@
     </section>
     </div>
 
-<!-- ==================== FORMULARIO DE PEDIDO INTELIGENTE ==================== -->
+<!-- ==================== FORMULARIO DE PEDIDO OPTIMIZADO ==================== -->
 <div id="pedidoSection" class="section-content">
 <section class="pedido section" id="pedido">
     <div class="container">
         <h2 class="section-title">Hacé tu Pedido</h2>
-        <p class="section-subtitle">Sistema de pedido inteligente con cálculo automático</p>
+        <p class="section-subtitle">Seleccioná tus productos libremente</p>
         
         <!-- Nota de anticipación -->
         <div class="form-notice">
@@ -2266,80 +2520,54 @@
         
         <form class="form-pedido" id="orderForm">
             
-            <!-- DATOS DEL CLIENTE -->
+            <!-- SELECCIÓN LIBRE DE PRODUCTOS -->
             <div class="form-section">
-                <h3 class="form-section-title">📱 Tus Datos</h3>
+                <h3 class="form-section-title">🛒 Seleccioná tus Productos</h3>
                 
-                <div class="form-group">
-                    <label for="nombreCliente">Nombre Completo *</label>
-                    <input type="text" id="nombreCliente" name="nombreCliente" required placeholder="¿Cómo te llamás?">
-                </div>
-
-                <div class="form-group">
-                    <label for="telefonoCliente">Teléfono / WhatsApp *</label>
-                    <input type="tel" id="telefonoCliente" name="telefonoCliente" required placeholder="+595 981 234 567">
-                </div>
-            </div>
-
-            <!-- SELECCIÓN DE PRODUCTO INTELIGENTE -->
-            <div class="form-section">
-                <h3 class="form-section-title">🍰 Seleccioná tu Producto</h3>
-                
-                <div class="product-selector">
-                    <label for="productSelector">Producto *</label>
-                    <select id="productSelector" required>
-                        <option value="">Cargando productos...</option>
-                    </select>
-                </div>
-                
-                <!-- Contador de Cantidad -->
-                <div class="form-group">
-                    <label>Cantidad *</label>
-                    <div class="quantity-counter">
-                        <button type="button" class="quantity-btn" id="decreaseQty">−</button>
-                        <input type="number" id="quantityInput" class="quantity-input" value="1" min="1" readonly>
-                        <button type="button" class="quantity-btn" id="increaseQty">+</button>
+                <!-- Empanadas -->
+                <div class="product-category">
+                    <h4 class="category-title">Empanadas (Mínimo 5 unidades totales)</h4>
+                    <div id="empanadasList" class="products-list">
+                        <!-- Se genera dinámicamente con JS -->
                     </div>
-                    <small class="form-help">Para empanadas: mínimo 5 unidades</small>
                 </div>
                 
-                <!-- Opciones de cocción (solo para empanadas) -->
-                <div id="cookingOptions" class="personalization-options">
-                    <div class="form-group">
-                        <label>¿Cómo las querés?</label>
-                        <div class="radio-group-inline">
-                            <label class="radio-option">
-                                <input type="radio" name="coccion" value="Fritas">
-                                <span class="radio-label">Fritas</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="coccion" value="Al Horno">
-                                <span class="radio-label">Al Horno</span>
-                            </label>
-                        </div>
+                <!-- Bebidas -->
+                <div class="product-category">
+                    <h4 class="category-title">Bebidas 500ml</h4>
+                    <div id="bebidasList" class="products-list">
+                        <!-- Se genera dinámicamente con JS -->
+                    </div>
+                </div>
+                
+                <!-- Combos -->
+                <div class="product-category">
+                    <h4 class="category-title">Combos de Tortas</h4>
+                    <div id="combosList" class="products-list">
+                        <!-- Se genera dinámicamente con JS -->
                     </div>
                 </div>
             </div>
 
-            <!-- PERSONALIZACIÓN INTELIGENTE -->
-            <div class="form-section">
+            <!-- PERSONALIZACIÓN (Condicional - oculta por defecto) -->
+            <div class="form-section" id="personalizacionSection" style="display: none;">
                 <h3 class="form-section-title">🎨 Personalización</h3>
                 
                 <div class="form-group">
                     <label>¿Querés personalizarlo? *</label>
                     <div class="radio-group-inline">
                         <label class="radio-option">
-                            <input type="radio" name="personalizacion" value="Si" required>
+                            <input type="radio" name="personalizacion" value="Si">
                             <span class="radio-label">Sí</span>
                         </label>
                         <label class="radio-option">
-                            <input type="radio" name="personalizacion" value="No" required>
+                            <input type="radio" name="personalizacion" value="No" checked>
                             <span class="radio-label">No</span>
                         </label>
                     </div>
                 </div>
 
-                <!-- Opciones de personalización (se muestra solo si elige Sí) -->
+                <!-- Opciones de personalización -->
                 <div id="personalizationOptions" class="personalization-options">
                     <div class="form-group">
                         <label for="personalizacionNombre">Nombre en la torta</label>
@@ -2398,14 +2626,14 @@
                 </div>
             </div>
 
-            <!-- CANTIDAD DE PERSONAS -->
-            <div class="form-section">
+            <!-- CANTIDAD DE PERSONAS (Condicional - oculta por defecto) -->
+            <div class="form-section" id="invitadosSection" style="display: none;">
                 <h3 class="form-section-title">👥 Cantidad de Invitados</h3>
                 
                 <div class="form-group">
-                    <label for="cantidadPersonas">¿Para cuántas personas? *</label>
-                    <input type="number" id="cantidadPersonas" name="cantidadPersonas" min="1" value="1" required>
-                    <small class="form-help">Si es para 10+ personas, se marcará como pedido grande</small>
+                    <label for="cantidadPersonas">¿Para cuántas personas?</label>
+                    <input type="number" id="cantidadPersonas" name="cantidadPersonas" min="1" value="1">
+                    <small class="form-help">Para combos grandes</small>
                 </div>
             </div>
 
@@ -2420,8 +2648,8 @@
                 </div>
             </div>
 
-            <!-- RESTRICCIONES ALIMENTARIAS -->
-            <div class="form-section">
+            <!-- RESTRICCIONES ALIMENTARIAS (Condicional - oculta por defecto) -->
+            <div class="form-section" id="restriccionesSection" style="display: none;">
                 <h3 class="form-section-title">🌿 Restricciones Alimentarias</h3>
                 
                 <div class="checkbox-group">
@@ -2532,13 +2760,8 @@
                 </div>
             </div>
 
-            <!-- Alerta de mínimo -->
-            <div class="minimum-alert" id="minimumAlert">
-                <span class="minimum-alert-icon">⚠️</span>
-                <span class="minimum-alert-text">
-                    El pedido mínimo es de <strong>Gs. 25.000</strong>
-                </span>
-            </div>
+            <!-- ERRORES DE VALIDACIÓN -->
+            <div id="orderErrors" style="display: none;"></div>
 
             <!-- COMENTARIOS -->
             <div class="form-section">
@@ -2551,7 +2774,7 @@
 
             <!-- BOTÓN DE ENVÍO -->
             <button type="submit" class="btn btn-whatsapp btn-submit" id="submitOrderBtn">
-                Enviar pedido por WhatsApp
+                Enviar pedido
             </button>
         </form>
     </div>
@@ -2663,8 +2886,8 @@
     <div class="modal-overlay" id="modalSuccess">
         <div class="modal-content">
             <div class="modal-icon">✅</div>
-            <h3>¡Pedido Preparado!</h3>
-            <p>Ahora se abrirá WhatsApp con tu pedido completo. Solo tenés que enviarlo.</p>
+            <h3>¡Pedido Recibido!</h3>
+            <p id="successMessage">Su pedido ha sido procesado y ya fue recibido por nuestro local. Muchas gracias.</p>
             <button class="btn-close" onclick="closeModal()">Entendido</button>
         </div>
     </div>
